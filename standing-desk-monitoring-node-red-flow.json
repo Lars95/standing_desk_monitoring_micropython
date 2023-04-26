@@ -1,0 +1,249 @@
+[
+    {
+        "id": "d5a22a9014a6cc8c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "15003e89944c6f62",
+        "type": "http in",
+        "z": "d5a22a9014a6cc8c",
+        "name": "",
+        "url": "/test",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 250,
+        "y": 300,
+        "wires": [
+            [
+                "6a02aa5db583f40b",
+                "6a8dbac4d8c1533c",
+                "113609c4803080fd"
+            ]
+        ]
+    },
+    {
+        "id": "dd6b962f0d5eeb05",
+        "type": "debug",
+        "z": "d5a22a9014a6cc8c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6a02aa5db583f40b",
+        "type": "http response",
+        "z": "d5a22a9014a6cc8c",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 540,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "6a8dbac4d8c1533c",
+        "type": "ha-sensor",
+        "z": "d5a22a9014a6cc8c",
+        "name": "DeskHeight",
+        "entityConfig": "eb740b2ff03c957c",
+        "version": 0,
+        "state": "payload.height",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 550,
+        "y": 280,
+        "wires": [
+            [
+                "dd6b962f0d5eeb05"
+            ]
+        ]
+    },
+    {
+        "id": "65663570d205dd85",
+        "type": "ha-binary-sensor",
+        "z": "d5a22a9014a6cc8c",
+        "name": "DeskMode",
+        "entityConfig": "2fc4f11a9a3fd7db",
+        "version": 0,
+        "state": "payload.mode",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 550,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "113609c4803080fd",
+        "type": "ha-sensor",
+        "z": "d5a22a9014a6cc8c",
+        "name": "DeskMode",
+        "entityConfig": "7c5c5a5e1c5736b1",
+        "version": 0,
+        "state": "payload.mode",
+        "stateType": "msg",
+        "attributes": [],
+        "inputOverride": "allow",
+        "outputProperties": [],
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "dd6b962f0d5eeb05"
+            ]
+        ]
+    },
+    {
+        "id": "eb740b2ff03c957c",
+        "type": "ha-entity-config",
+        "server": "8a565f6b.5ab",
+        "deviceConfig": "7907a355ea849346",
+        "name": "DeskHeight",
+        "version": "6",
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "deskheight"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": "distance"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "cm"
+            },
+            {
+                "property": "state_class",
+                "value": "measurement"
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "2fc4f11a9a3fd7db",
+        "type": "ha-entity-config",
+        "server": "8a565f6b.5ab",
+        "deviceConfig": "7907a355ea849346",
+        "name": "DeskMode",
+        "version": "6",
+        "entityType": "binary_sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "Desk_Mode"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "7c5c5a5e1c5736b1",
+        "type": "ha-entity-config",
+        "server": "8a565f6b.5ab",
+        "deviceConfig": "7907a355ea849346",
+        "name": "DeskMode",
+        "version": "6",
+        "entityType": "sensor",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": "DeskMode"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "entity_category",
+                "value": ""
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            },
+            {
+                "property": "state_class",
+                "value": ""
+            }
+        ],
+        "resend": false,
+        "debugEnabled": false
+    },
+    {
+        "id": "8a565f6b.5ab",
+        "type": "server",
+        "name": "Home Assistant",
+        "version": 5,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true,
+        "heartbeat": false,
+        "heartbeatInterval": 30,
+        "areaSelector": "friendlyName",
+        "deviceSelector": "friendlyName",
+        "entitySelector": "friendlyName",
+        "statusSeparator": "at: ",
+        "statusYear": "hidden",
+        "statusMonth": "short",
+        "statusDay": "numeric",
+        "statusHourCycle": "h23",
+        "statusTimeFormat": "h:m",
+        "enableGlobalContextStore": true
+    },
+    {
+        "id": "7907a355ea849346",
+        "type": "ha-device-config",
+        "name": "height_adjustable_desk",
+        "hwVersion": "",
+        "manufacturer": "Node-RED",
+        "model": "",
+        "swVersion": ""
+    }
+]

@@ -1,0 +1,28 @@
+alias: DeskNotification
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.deskmode
+    from: standing
+    to: sitting
+    for:
+      hours: 2
+      minutes: 0
+      seconds: 0
+condition:
+  - condition: time
+    weekday:
+      - fri
+      - thu
+      - wed
+      - tue
+      - mon
+    before: "15:00:00"
+    after: "07:00:00"
+action:
+  - service: notify.mobile_app_iphone_von_lars
+    data:
+      title: You are sitting too long!
+      message: You are sitting for more than 2 hours. You should stand up for a bit!
+mode: single
